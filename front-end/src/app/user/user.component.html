@@ -1,0 +1,24 @@
+<div>
+  <h2>Users</h2>
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.username }} - {{ user.email }}
+      <button (click)="onSelectUser(user)">Edit</button>
+      <button (click)="deleteUser(user.id)">Delete</button>
+    </li>
+  </ul>
+
+  <h3>Add New User</h3>
+  <div>
+    <label>Username: <input [(ngModel)]="newUser.username" /></label>
+    <label>Email: <input [(ngModel)]="newUser.email" /></label>
+    <button (click)="createUser()">Add User</button>
+  </div>
+
+  <h3>Edit User</h3>
+  <div *ngIf="selectedUserId !== null">
+    <label>Username: <input [(ngModel)]="selectedUser.username" /></label>
+    <label>Email: <input [(ngModel)]="selectedUser.email" /></label>
+    <button (click)="updateUser()">Update User</button>
+  </div>
+</div>
